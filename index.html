@@ -7,7 +7,7 @@
   <title>Raghuvendra Tiwari | Developer, SEO & AI Builder</title>
   <meta name="description" content="Raghuvendra Tiwari — Full-Stack Developer, Technical SEO Specialist, AI Builder and founder of Devloperwala and YG Esports.">
   <meta name="theme-color" content="#0A0A0C">
-  <link rel="icon" href="/assets/logos/favicon.svg">
+  <link rel="icon" href="assets/logos/favicon.svg">
 
   <style>
     :root {
@@ -25,6 +25,10 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+    }
+
+    [hidden] {
+      display: none !important;
     }
 
     html {
@@ -487,6 +491,216 @@
       color: var(--accent);
     }
 
+    .btn:disabled {
+      opacity: .6;
+      cursor: wait;
+    }
+
+    /* PageSpeed results (shown on this page) */
+
+    .psi-output {
+      margin-top: 18px;
+    }
+
+    .psi-status {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .psi-status:empty {
+      display: none;
+    }
+
+    .psi-status.error {
+      color: #ff6b6b;
+    }
+
+    .spinner {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      border: 2px solid var(--line);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .psi-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .psi-tab {
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--muted);
+      padding: 10px 18px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .psi-tab:hover {
+      color: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .psi-tab[aria-selected="true"] {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--bg);
+    }
+
+    .psi-report {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      padding: 35px;
+    }
+
+    .psi-meta {
+      color: var(--muted);
+      font-size: 11px;
+      word-break: break-all;
+      margin-bottom: 28px;
+    }
+
+    .psi-block {
+      margin-top: 36px;
+    }
+
+    .psi-block:first-of-type {
+      margin-top: 0;
+    }
+
+    .psi-block h4 {
+      font-size: 16px;
+      letter-spacing: -.3px;
+      margin-bottom: 6px;
+    }
+
+    .psi-sub {
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 18px;
+    }
+
+    .grade-good { --c: #0cce6b; }
+    .grade-avg  { --c: #ffa400; }
+    .grade-bad  { --c: #ff4e42; }
+    .grade-na   { --c: var(--muted); }
+
+    .psi-scores {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin: 24px 0 0;
+    }
+
+    .score-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      text-align: center;
+    }
+
+    .score-ring {
+      --p: 0;
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: conic-gradient(var(--c) calc(var(--p) * 1%), var(--line) 0);
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+
+    .score-ring::before {
+      content: "";
+      position: absolute;
+      inset: 7px;
+      border-radius: 50%;
+      background: var(--surface);
+    }
+
+    .score-ring span {
+      position: relative;
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--c);
+    }
+
+    .score-label {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .psi-metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 12px;
+    }
+
+    .metric {
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--c);
+      padding: 14px 16px;
+    }
+
+    .metric-label {
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.4;
+    }
+
+    .metric-value {
+      color: var(--c);
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -.5px;
+      margin-top: 4px;
+    }
+
+    .psi-issues {
+      list-style: none;
+      border-top: 1px solid var(--line);
+    }
+
+    .psi-issues li {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 18px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 12px;
+      color: #C4C5CA;
+    }
+
+    .psi-issues li span {
+      color: var(--c);
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    .psi-note {
+      color: var(--muted);
+      font-size: 11px;
+      margin-top: 28px;
+    }
+
     /* Contact */
 
     .contact-layout {
@@ -706,6 +920,24 @@
 
       .seo-form {
         flex-direction: column;
+      }
+
+      .psi-report {
+        padding: 22px;
+      }
+
+      .psi-scores {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 26px;
+      }
+
+      .psi-metrics {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .psi-issues li {
+        flex-direction: column;
+        gap: 4px;
       }
 
       .footer-right {
@@ -994,8 +1226,9 @@
           <div>
             <h3>How fast is your website?</h3>
             <p>
-              Enter a website URL to open Google's PageSpeed Insights
-              and explore its performance, accessibility and SEO report.
+              Enter a website URL and get a real PageSpeed report right here:
+              performance, accessibility, best practices and SEO scores,
+              plus real-user Core Web Vitals when Google has the data.
             </p>
           </div>
 
@@ -1007,8 +1240,13 @@
               aria-label="Website URL"
               required
             >
-            <button class="btn" type="submit">ANALYZE ↗</button>
+            <button class="btn" type="submit" id="seoButton">ANALYZE ↗</button>
           </form>
+        </div>
+
+        <div class="psi-output">
+          <p class="psi-status" id="psiStatus" role="status" aria-live="polite"></p>
+          <div id="psiResult"></div>
         </div>
       </div>
     </section>
@@ -1150,37 +1388,422 @@
       revealElements.forEach(element => element.classList.add("visible"));
     }
 
-    // PageSpeed Insights
+    // ------------------------------------------------------------
+    // PageSpeed Insights: real results shown on this page
+    // Optional: put your Google PageSpeed API key between the quotes.
+    // Restrict the key to this site (HTTP referrer) in Google Cloud.
+    // ------------------------------------------------------------
+    const PSI_API_KEY = "";
+    const PSI_ENDPOINT = "https://www.googleapis.com/pagespeedonline/v5/runPagespeed";
+    const PSI_TIMEOUT_MS = 120000;
+
     const seoForm = document.getElementById("seoForm");
+    const seoInput = document.getElementById("websiteUrl");
+    const seoButton = document.getElementById("seoButton");
+    const psiStatus = document.getElementById("psiStatus");
+    const psiResult = document.getElementById("psiResult");
+
+    let psiBusy = false;
+
+    function el(tag, className, text) {
+      const node = document.createElement(tag);
+      if (className) node.className = className;
+      if (text !== undefined && text !== null) node.textContent = text;
+      return node;
+    }
+
+    function gradeFromScore(score) {
+      if (score === null || score === undefined) return "grade-na";
+      if (score >= 0.9) return "grade-good";
+      if (score >= 0.5) return "grade-avg";
+      return "grade-bad";
+    }
+
+    function gradeFromCategory(category) {
+      if (category === "FAST") return "grade-good";
+      if (category === "AVERAGE") return "grade-avg";
+      if (category === "SLOW") return "grade-bad";
+      return "grade-na";
+    }
+
+    function cleanText(value) {
+      return String(value || "")
+        .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
+        .replace(/`/g, "");
+    }
+
+    function normalizeUrl(rawValue) {
+      const value = rawValue.trim();
+      if (!value) return null;
+
+      let url;
+      try {
+        url = new URL(/^https?:\/\//i.test(value) ? value : "https://" + value);
+      } catch (error) {
+        return null;
+      }
+
+      if (!["http:", "https:"].includes(url.protocol) || !url.hostname.includes(".")) {
+        return null;
+      }
+
+      return url.href;
+    }
+
+    function setStatus(message, isError, withSpinner) {
+      psiStatus.textContent = "";
+      psiStatus.classList.toggle("error", Boolean(isError));
+
+      if (!message) return;
+
+      if (withSpinner) {
+        psiStatus.appendChild(el("span", "spinner"));
+      }
+      psiStatus.appendChild(el("span", "", message));
+    }
+
+    function friendlyError(error) {
+      if (error && error.name === "AbortError") {
+        return "Google took too long to respond. Please try again.";
+      }
+      if (error && error.status === 429) {
+        return "Google's free test limit is reached right now. Please wait a minute and try again.";
+      }
+      if (error && error.status) {
+        return error.message;
+      }
+      if (error instanceof TypeError) {
+        return "Could not reach Google. Please check your internet connection and try again.";
+      }
+      return (error && error.message) ? error.message : "Something went wrong. Please try again.";
+    }
+
+    async function fetchPsi(url, strategy, signal) {
+      const params = new URLSearchParams();
+      params.set("url", url);
+      params.set("strategy", strategy);
+      ["performance", "accessibility", "best-practices", "seo"].forEach(category => {
+        params.append("category", category);
+      });
+      if (PSI_API_KEY) params.set("key", PSI_API_KEY);
+
+      const response = await fetch(PSI_ENDPOINT + "?" + params.toString(), { signal: signal });
+
+      let data = null;
+      try {
+        data = await response.json();
+      } catch (error) {
+        data = null;
+      }
+
+      if (!response.ok) {
+        const message = data && data.error && data.error.message
+          ? data.error.message
+          : "Google returned an error (" + response.status + ").";
+        const err = new Error(message);
+        err.status = response.status;
+        throw err;
+      }
+
+      return data;
+    }
+
+    function formatMs(value) {
+      if (value >= 1000) return (value / 1000).toFixed(1) + " s";
+      return Math.round(value) + " ms";
+    }
+
+    function buildScores(lh) {
+      const grid = el("div", "psi-scores");
+      const list = [
+        ["performance", "Performance"],
+        ["accessibility", "Accessibility"],
+        ["best-practices", "Best Practices"],
+        ["seo", "SEO"]
+      ];
+
+      list.forEach(([key, label]) => {
+        const category = lh.categories && lh.categories[key];
+        const score = category && typeof category.score === "number" ? category.score : null;
+
+        const item = el("div", "score-item");
+        const ring = el("div", "score-ring " + gradeFromScore(score));
+        const number = el("span", "", score === null ? "N/A" : String(Math.round(score * 100)));
+
+        if (score !== null) ring.style.setProperty("--p", String(Math.round(score * 100)));
+
+        ring.appendChild(number);
+        item.appendChild(ring);
+        item.appendChild(el("div", "score-label", label));
+        grid.appendChild(item);
+      });
+
+      return grid;
+    }
+
+    function buildField(data) {
+      const block = el("div", "psi-block");
+      block.appendChild(el("h4", "", "Real users (Chrome UX Report)"));
+
+      const own = data.loadingExperience;
+      const origin = data.originLoadingExperience;
+      const hasMetrics = exp => exp && exp.metrics && Object.keys(exp.metrics).length > 0;
+
+      let experience = null;
+      let scope = "";
+
+      if (hasMetrics(own)) {
+        experience = own;
+        scope = "this exact URL";
+      } else if (hasMetrics(origin)) {
+        experience = origin;
+        scope = "the whole site (origin)";
+      }
+
+      if (!experience) {
+        block.appendChild(el(
+          "p",
+          "psi-sub",
+          "Google has no real-user data for this URL. This usually happens when a site has low traffic. The lab results below are still real measurements."
+        ));
+        return block;
+      }
+
+      const overallMap = { FAST: "Good", AVERAGE: "Needs improvement", SLOW: "Poor" };
+      const overall = overallMap[experience.overall_category];
+      block.appendChild(el(
+        "p",
+        "psi-sub",
+        "Data for " + scope + ", last 28 days." + (overall ? " Overall: " + overall + "." : "")
+      ));
+
+      const grid = el("div", "psi-metrics");
+      const fields = [
+        ["LARGEST_CONTENTFUL_PAINT_MS", "Largest Contentful Paint (LCP)", "ms"],
+        ["INTERACTION_TO_NEXT_PAINT", "Interaction to Next Paint (INP)", "inp"],
+        ["CUMULATIVE_LAYOUT_SHIFT_SCORE", "Cumulative Layout Shift (CLS)", "cls"],
+        ["FIRST_CONTENTFUL_PAINT_MS", "First Contentful Paint (FCP)", "ms"],
+        ["EXPERIMENTAL_TIME_TO_FIRST_BYTE", "Time to First Byte (TTFB)", "ms"]
+      ];
+
+      fields.forEach(([key, label, type]) => {
+        const metric = experience.metrics[key];
+        if (!metric || typeof metric.percentile !== "number") return;
+
+        let value;
+        if (type === "cls") value = (metric.percentile / 100).toFixed(2);
+        else if (type === "inp") value = Math.round(metric.percentile) + " ms";
+        else value = formatMs(metric.percentile);
+
+        const card = el("div", "metric " + gradeFromCategory(metric.category));
+        card.appendChild(el("div", "metric-label", label));
+        card.appendChild(el("div", "metric-value", value));
+        grid.appendChild(card);
+      });
+
+      block.appendChild(grid);
+      return block;
+    }
+
+    function buildLab(lh) {
+      const block = el("div", "psi-block");
+      block.appendChild(el("h4", "", "Lab test (Lighthouse)"));
+      block.appendChild(el("p", "psi-sub", "A simulated page load on Google's servers."));
+
+      const grid = el("div", "psi-metrics");
+      const metrics = [
+        ["first-contentful-paint", "First Contentful Paint"],
+        ["largest-contentful-paint", "Largest Contentful Paint"],
+        ["total-blocking-time", "Total Blocking Time"],
+        ["cumulative-layout-shift", "Cumulative Layout Shift"],
+        ["speed-index", "Speed Index"]
+      ];
+
+      metrics.forEach(([id, label]) => {
+        const audit = lh.audits && lh.audits[id];
+        if (!audit || !audit.displayValue) return;
+
+        const score = typeof audit.score === "number" ? audit.score : null;
+        const card = el("div", "metric " + gradeFromScore(score));
+        card.appendChild(el("div", "metric-label", label));
+        card.appendChild(el("div", "metric-value", cleanText(audit.displayValue)));
+        grid.appendChild(card);
+      });
+
+      block.appendChild(grid);
+      return block;
+    }
+
+    function buildIssues(lh) {
+      const block = el("div", "psi-block");
+      block.appendChild(el("h4", "", "Things to improve"));
+      block.appendChild(el("p", "psi-sub", "Checks that did not pass, worst first."));
+
+      const audits = Object.values(lh.audits || {})
+        .filter(audit =>
+          (audit.scoreDisplayMode === "numeric" || audit.scoreDisplayMode === "binary") &&
+          typeof audit.score === "number" &&
+          audit.score < 0.9
+        )
+        .sort((a, b) => a.score - b.score)
+        .slice(0, 6);
+
+      if (audits.length === 0) {
+        block.appendChild(el("p", "psi-sub", "No failing checks found. Nice work."));
+        return block;
+      }
+
+      const list = el("ul", "psi-issues");
+
+      audits.forEach(audit => {
+        const item = el("li", "", cleanText(audit.title));
+        if (audit.displayValue) {
+          const extra = el("span", gradeFromScore(audit.score), cleanText(audit.displayValue));
+          item.appendChild(extra);
+        }
+        list.appendChild(item);
+      });
+
+      block.appendChild(list);
+      return block;
+    }
+
+    function buildReport(data) {
+      const lh = data && data.lighthouseResult;
+      const report = el("div", "psi-report");
+
+      if (!lh) {
+        report.appendChild(el("p", "psi-sub", "Google did not return a report for this URL."));
+        return report;
+      }
+
+      const when = lh.fetchTime ? new Date(lh.fetchTime).toLocaleString() : "";
+      report.appendChild(el(
+        "div",
+        "psi-meta",
+        "Tested: " + (lh.finalUrl || "") + (when ? " · " + when : "")
+      ));
+
+      report.appendChild(buildScores(lh));
+      report.appendChild(buildField(data));
+      report.appendChild(buildLab(lh));
+      report.appendChild(buildIssues(lh));
+      report.appendChild(el(
+        "p",
+        "psi-note",
+        "Source: Google PageSpeed Insights API (Lighthouse). Lab scores can vary slightly between runs."
+      ));
+
+      return report;
+    }
+
+    function renderResults(results) {
+      psiResult.textContent = "";
+
+      const sets = [
+        ["mobile", "Mobile"],
+        ["desktop", "Desktop"]
+      ];
+
+      const tabs = el("div", "psi-tabs");
+      tabs.setAttribute("role", "tablist");
+
+      const buttons = [];
+      const panels = [];
+
+      sets.forEach(([key, label]) => {
+        const button = el("button", "psi-tab", label);
+        button.type = "button";
+        button.setAttribute("role", "tab");
+
+        const panel = el("div", "psi-panel");
+        panel.setAttribute("role", "tabpanel");
+
+        const outcome = results[key];
+
+        if (outcome.status === "fulfilled") {
+          try {
+            panel.appendChild(buildReport(outcome.value));
+          } catch (error) {
+            panel.appendChild(el("p", "psi-status error", label + " report could not be displayed."));
+          }
+        } else {
+          panel.appendChild(el(
+            "p",
+            "psi-status error",
+            label + " test failed: " + friendlyError(outcome.reason)
+          ));
+        }
+
+        buttons.push(button);
+        panels.push(panel);
+        tabs.appendChild(button);
+      });
+
+      function selectTab(index) {
+        buttons.forEach((button, i) => {
+          button.setAttribute("aria-selected", String(i === index));
+          panels[i].hidden = i !== index;
+        });
+      }
+
+      buttons.forEach((button, index) => {
+        button.addEventListener("click", () => selectTab(index));
+      });
+
+      const firstOk = results.mobile.status === "fulfilled" ? 0 : 1;
+
+      psiResult.appendChild(tabs);
+      panels.forEach(panel => psiResult.appendChild(panel));
+      selectTab(firstOk);
+    }
 
     if (seoForm) {
-      seoForm.addEventListener("submit", event => {
+      seoForm.addEventListener("submit", async event => {
         event.preventDefault();
 
-        const input = document.getElementById("websiteUrl");
-        const rawValue = input.value.trim();
+        if (psiBusy) return;
 
-        let url;
+        const url = normalizeUrl(seoInput.value);
+
+        if (!url) {
+          psiResult.textContent = "";
+          setStatus("Please enter a valid website URL.", true, false);
+          return;
+        }
+
+        psiBusy = true;
+        seoButton.disabled = true;
+        seoButton.textContent = "ANALYZING...";
+        psiResult.textContent = "";
+        setStatus("Running a real test on Google's servers. This usually takes 20 to 60 seconds.", false, true);
+
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), PSI_TIMEOUT_MS);
 
         try {
-          url = new URL(
-            /^https?:\/\//i.test(rawValue) ? rawValue : "https://" + rawValue
-          );
-        } catch {
-          alert("Please enter a valid website URL.");
-          return;
+          const settled = await Promise.allSettled([
+            fetchPsi(url, "mobile", controller.signal),
+            fetchPsi(url, "desktop", controller.signal)
+          ]);
+
+          const results = { mobile: settled[0], desktop: settled[1] };
+
+          if (results.mobile.status !== "fulfilled" && results.desktop.status !== "fulfilled") {
+            throw results.mobile.reason;
+          }
+
+          setStatus("", false, false);
+          renderResults(results);
+        } catch (error) {
+          psiResult.textContent = "";
+          setStatus(friendlyError(error), true, false);
+        } finally {
+          clearTimeout(timer);
+          psiBusy = false;
+          seoButton.disabled = false;
+          seoButton.textContent = "ANALYZE ↗";
         }
-
-        if (!["http:", "https:"].includes(url.protocol) || !url.hostname.includes(".")) {
-          alert("Please enter a valid website URL.");
-          return;
-        }
-
-        const reportUrl =
-          "https://pagespeed.web.dev/analysis?url=" +
-          encodeURIComponent(url.href);
-
-        window.open(reportUrl, "_blank", "noopener,noreferrer");
       });
     }
 
