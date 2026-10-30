@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 512 512"
+     role="img"
+     aria-labelledby="title desc">
+
+  <title id="title">Raghuvendra Tiwari RT Mark</title>
+  <desc id="desc">Open geometric architectural monogram.</desc>
+
+  <g fill="none"
+     stroke="#F4F4EF"
+     stroke-width="25"
+     stroke-linecap="square"
+     stroke-linejoin="miter">
+
+    <path d="
+      M112 398
+      V114
+      H260
+      C337 114 356 160 356 204
+      C356 249 325 278 260 278
+      H112
+      L322 398
+    "/>
+
+    <path d="
+      M260 114 H430
+      M345 114 V398
+    "/>
+
+  </g>
+
+  <path d="M190 334 L220 356"
+        fill="none"
+        stroke="#E0FF66"
+        stroke-width="25"
+        stroke-linecap="square"/>
+
+  <path d="M430 94 V114"
+        fill="none"
+        stroke="#E0FF66"
+        stroke-width="5"/>
+
+</svg>
