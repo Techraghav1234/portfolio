@@ -1,0 +1,254 @@
+:root {
+  --bg: #0A0A0C;
+  --surface: #121316;
+  --white: #F4F4EF;
+  --lime: #E0FF66;
+  --muted: #8E9099;
+  --line: #272930;
+}
+
+.hero {
+  min-height: 90vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding: 110px 9%;
+  background: var(--bg);
+  color: var(--white);
+  isolation: isolate;
+}
+
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(#ffffff08 1px, transparent 1px),
+    linear-gradient(90deg, #ffffff08 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to right, black, transparent 90%);
+}
+
+.hero-content {
+  width: min(680px, 65%);
+  position: relative;
+  z-index: 2;
+  animation: heroEnter 1s ease both;
+}
+
+.hero-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+  font: 11px monospace;
+  letter-spacing: 2px;
+  margin-bottom: 32px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--lime);
+  border-radius: 50%;
+  box-shadow: 0 0 0 5px #e0ff6618;
+}
+
+.hero h1 {
+  font-size: clamp(58px, 8vw, 108px);
+  line-height: .94;
+  letter-spacing: -7px;
+  font-weight: 750;
+  margin: 0;
+}
+
+.hero-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px #f4f4ef99;
+}
+
+.hero-accent {
+  color: var(--lime);
+}
+
+.hero-description {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.8;
+  max-width: 470px;
+  margin: 32px 0;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.hero-actions a {
+  text-decoration: none;
+  padding: 15px 22px;
+  font-size: 13px;
+  font-weight: 650;
+  transition: .25s ease;
+}
+
+.btn-primary {
+  background: var(--lime);
+  color: var(--bg);
+}
+
+.btn-primary:hover {
+  transform: translateY(-4px);
+  background: var(--white);
+}
+
+.btn-primary span {
+  margin-left: 15px;
+}
+
+.btn-secondary {
+  color: var(--white);
+  border: 1px solid var(--line);
+}
+
+.btn-secondary:hover {
+  border-color: var(--lime);
+  color: var(--lime);
+}
+
+.hero-meta {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-top: 75px;
+  color: #777983;
+  font: 10px monospace;
+  letter-spacing: 1.5px;
+}
+
+.hero-visual {
+  position: absolute;
+  width: 390px;
+  height: 390px;
+  right: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+}
+
+.visual-ring {
+  position: absolute;
+  border: 1px solid #ffffff16;
+  border-radius: 50%;
+}
+
+.ring-one {
+  width: 300px;
+  height: 300px;
+  animation: rotateRing 35s linear infinite;
+}
+
+.ring-two {
+  width: 220px;
+  height: 220px;
+  border-style: dashed;
+  border-color: #e0ff6640;
+  animation: rotateRing 45s linear infinite reverse;
+}
+
+.visual-mark {
+  font-size: 92px;
+  font-weight: 800;
+  letter-spacing: -10px;
+}
+
+.visual-mark span {
+  color: var(--lime);
+}
+
+.visual-cross {
+  position: absolute;
+  top: 30px;
+  right: 45px;
+  color: var(--lime);
+  font-size: 25px;
+}
+
+.visual-caption {
+  position: absolute;
+  bottom: 18px;
+  color: var(--muted);
+  font: 9px monospace;
+  letter-spacing: 3px;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 28px;
+  left: 9%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+  font: 9px monospace;
+  letter-spacing: 2px;
+}
+
+.hero-scroll span {
+  height: 1px;
+  width: 38px;
+  background: var(--lime);
+}
+
+@keyframes heroEnter {
+  from { opacity: 0; transform: translateY(35px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rotateRing {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 850px) {
+  .hero {
+    min-height: 850px;
+    padding: 100px 7%;
+    align-items: flex-start;
+  }
+
+  .hero-content {
+    width: 100%;
+  }
+
+  .hero h1 {
+    font-size: clamp(58px, 14vw, 85px);
+    letter-spacing: -4px;
+  }
+
+  .hero-visual {
+    width: 260px;
+    height: 260px;
+    top: auto;
+    bottom: 65px;
+    right: 5%;
+    opacity: .35;
+  }
+
+  .ring-one { width: 230px; height: 230px; }
+  .ring-two { width: 170px; height: 170px; }
+  .visual-mark { font-size: 65px; }
+
+  .hero-meta {
+    margin-top: 45px;
+    gap: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-content, .visual-ring {
+    animation: none;
+  }
+}
